@@ -8,7 +8,7 @@ port = 10003
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host, port))
 
-is_new_line = True
+is_first_input = True
 quit_prog2 = False
 
 s.send(str.encode("GetVersion,;"))
