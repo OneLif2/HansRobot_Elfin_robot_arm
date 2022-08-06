@@ -1,7 +1,6 @@
 from .tcp import Tcp
 from .ra_error import *
 
-
 class RobotArm():
     def __init__(self, host):
         self.tcp = Tcp(host)
