@@ -2,7 +2,7 @@ import socket  # sudo apt-get install socket
 from threading import Thread
 import time
 
-host = "192.168.1.111"  # server ip
+host = "192.168.1.112"  # server ip
 port = 10003
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -18,10 +18,10 @@ print("\n")
 def prog1():
 
     while True:
-        global is_new_line, quit_prog2
-        if is_new_line == True:
+        global is_first_input, quit_prog2
+        if is_first_input == True:
             command = input('Enter your command: ') + ",;\n"
-            is_new_line = False
+            is_first_input = False
         else:
             command = input() + ",;\n"
 
