@@ -2,7 +2,7 @@ import socket  # sudo apt-get install socket
 from threading import Thread
 import time
 
-host = "192.168.1.112"  # server ip
+host = "192.168.1.111"  # server ip
 port = 10003
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
