@@ -59,3 +59,18 @@ class RobotArm():
         msg = 'SetRobotiq,' + str(position) + ',' + str(speed) + ',' + str(force) + ',;'
         reply = self.tcp.send(msg)
         self._validate(reply)
+    
+    def resetGripper(self):
+        msg = 'RobotIQReset,;'
+        reply = self.tcp.send(msg)
+        self._validate(reply)
+        print(reply)
+
+    def isGripperMoving(self):
+        reply = self.tcp.send('RobotiqStatus,;')
+        self._validate(reply)
+        if reply == 'RobotiqStatus,OK,0,3,1,1,;':
+            return True
+        if reply == 'RobotiqStatus,OK,3,3,1,1,;':
+            return False
+        #raise RAError()
