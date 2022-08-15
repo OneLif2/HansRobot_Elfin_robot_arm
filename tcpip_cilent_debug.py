@@ -11,6 +11,9 @@ s.connect((host, port))
 is_first_input = True
 quit_prog2 = False
 
+#GrpPowerOn,0
+#RobotIQReset
+
 s.send(str.encode("GetVersion,;"))
 print("return = ", s.recv(1024).decode('UTF-8'))
 print("\n")
