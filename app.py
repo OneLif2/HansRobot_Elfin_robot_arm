@@ -27,9 +27,9 @@ def main():
     while ra2.isMoving(): continue
 
     for i in range(1, 6):
-        ra.setSpeed(0.3)
+        ra.setSpeed(0.3) # i*0.2
         print(str(i)+')', 'speed', '=', ra.getSpeed())
-        ra2.setSpeed(0.3)
+        ra2.setSpeed(0.3) # i*0.2
         print(str(i)+')', 'speed', '=', ra2.getSpeed())
         
         ra.moveJoint(lpos1)

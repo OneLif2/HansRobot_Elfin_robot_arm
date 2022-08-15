@@ -73,4 +73,4 @@ class RobotArm():
             return True
         if reply == 'RobotiqStatus,OK,3,3,1,1,;':
             return False
-        #raise RAError()
+        raise RAError()
