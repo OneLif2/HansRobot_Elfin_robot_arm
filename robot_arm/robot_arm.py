@@ -5,7 +5,7 @@ class RobotArm():
     def __init__(self, host):
         self.tcp = Tcp(host)
     
-    def _validate(self, reply):
+    def _validate(self, reply): #check if error raised
         values = reply.split(',')
         if len(values) < 3:
             raise RAError('Received invalid response (' + reply + ')')
@@ -16,9 +16,9 @@ class RobotArm():
         reply = self.tcp.send('ReadMoveState,0,;')
         self._validate(reply)
         if reply == 'ReadMoveState,OK,1009,;':
-            return True
+            return True #return 1009 while it is moving
         if reply == 'ReadMoveState,OK,0,;':
-            return False
+            return False #return 0 while stopped
         raise RAError()
 
     def moveJoint(self, jPos):
@@ -63,12 +63,14 @@ class RobotArm():
     def resetGripper(self):
         msg = 'RobotIQReset,;'
         reply = self.tcp.send(msg)
-        self._validate(reply)
+        self._validate(reply) #check if error raised
         print(reply)
 
     def isGripperMoving(self):
         reply = self.tcp.send('RobotiqStatus,;')
         self._validate(reply)
+        if reply == 'RobotiqStatus,OK,2,3,1,1,;':
+            return True #return True while it is gripping object
         if reply == 'RobotiqStatus,OK,0,3,1,1,;':
             return True #return True while its moving
         if reply == 'RobotiqStatus,OK,3,3,1,1,;':
