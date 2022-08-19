@@ -1,3 +1,4 @@
+# program for testing grippper status
 from robot_arm import *
 import time
 
@@ -18,7 +19,7 @@ def initial_setup():
 
 def main():
     try:
-        ra = RobotArm('192.168.1.111')
+        ra = RobotArm('192.168.1.112')
     except:
         pass
     print("ready!!")
@@ -26,7 +27,7 @@ def main():
     #ra.resetGripper()
 
     for i in range(1, 6):
-        ra.moveGripper(140,30,10)
+        ra.moveGripper(140,200,10)
 
         start_time = time.time()
         time_diff = 0
@@ -37,7 +38,7 @@ def main():
         print("action 1 done!!")
         time.sleep(1)
         
-        ra.moveGripper(0,30,10)
+        ra.moveGripper(82,200,10)
 
         start_time = time.time()
         time_diff = 0
