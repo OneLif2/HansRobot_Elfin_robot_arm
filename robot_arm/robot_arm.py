@@ -69,10 +69,10 @@ class RobotArm():
     def isGripperMoving(self):
         reply = self.tcp.send('RobotiqStatus,;')
         self._validate(reply)
-        if reply == 'RobotiqStatus,OK,2,3,1,1,;':
-            return True #return True while it is grasping an object
         if reply == 'RobotiqStatus,OK,0,3,1,1,;':
             return True #return True while its moving
+        if reply == 'RobotiqStatus,OK,2,3,1,1,;':
+            return False #return True while it is grasping an object    
         if reply == 'RobotiqStatus,OK,3,3,1,1,;':
             return False #return False when the action is done
         raise RAError()

@@ -1,4 +1,14 @@
 # program for testing grippper status
+import os
+import sys
+# Append parent directory to import path, import file from parent directory
+sys.path.insert(1, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+print(__file__) #./file.py
+print(os.path.abspath(__file__)) #./file.py
+print(os.path.dirname(os.path.abspath(__file__))) #./
+print(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) #../
+
 from robot_arm import *
 import time
 
