@@ -1,7 +1,7 @@
 # HansRobot_Elfin_robot_arm
 #Control Elfin robot arm with python code over TCP/IP Communication #Gripper 2F-140
 
-This is a python library using the commands of the "Hansrobot protocol interface" to provide hooks for HansRobot Elfin robot arm on Windows, Mac and Linux.
+This is a python library using the commands of the "Hansrobot protocol interface" to provide hooks for HansRobot Elfin robot arm on Windows, Mac or Linux.
 
 ## Features:
 1. No more programming with C++, no compilation process needed
